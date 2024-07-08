@@ -1,7 +1,7 @@
 ---
 title: "Your awesome project title"
 author:
-  name: "You et al"
+  name: "Marianna Pekar et al"
   affiliation: "From whence you hail"
 date: today
 bibliography: refs.bib
@@ -10,6 +10,7 @@ format:
   html:
     code-fold: false
     link-external-newwindow: true
+    toc: true
 theme:
   light: flatly
   dark: darkly
@@ -52,6 +53,21 @@ In the template Introduction section take 3-4 minutes to write:
 - remove this callout and render the document and hit the :heavy_check_mark: in zoom
 :::
 
+## Sub-headings
+
+- first element
+- second element
+
+This is an inline S\sigma\$ 
+
+$$
+SD = \sqrt{\frac{\sum_{i=1}^{n}{(x_i - \bar{x})^2}}{n-1}}
+$$
+
+- @perkel2022
+- [@perkel2022]
+- [@chamberlin1897; @perkel2022]
+
 # Libraries {.unnumbered .unlisted}
 
 Generally it is good practice to include a list of packages you use up front. But you may not need to show them in the output or list them in the table of contents. The `{.unnumbered .unlisted}` commands following the heading remove this section from the table of contents but it will remain in the text. Quarto accepts multiple coding languages, the following example uses R. I have set up working R code chunks so that for this tutorial you do not need to be familiar with R. Here, we will experiment with a few code [execution options](https://quarto.org/docs/computations/execution-options.html).
@@ -75,10 +91,19 @@ If you want to use Python code check out the documentation [here](https://quarto
 
 ```{r Libraries}
 #| include: true
+#| output: false
+#| warning: false
 
 if (!require("pacman")) install.packages("pacman", repos="http://cran.r-project.org")
 pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
 ```
+
+```
+x <- 3
+print(x)
+
+```
+
 
 # Tabsets
 
@@ -92,6 +117,20 @@ pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
   - Does not matter what they contain but feel free to blurb something in there
 
 - render the document and hit the :heavy_check_mark: in zoom
+
+:::
+
+:::{.panel-tabset}
+## Tab 1
+some content 
+
+## Tab 2
+```
+
+# some code
+
+```
+
 :::
 
 # Images
@@ -103,6 +142,11 @@ pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
 
 - render the document and hit the :heavy_check_mark: in zoom
 :::
+
+
+![XKCD](./images/fixing_problems.png)(#fig-xkcd)
+
+to refer to the image @fig-xkcd
 
 
 # let'g go Git it
